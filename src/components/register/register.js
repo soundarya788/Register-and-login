@@ -11,7 +11,7 @@ const Register = () => {
         name: "",
         email:"",
         password:"",
-        reEnterPassword: ""
+        ConfirmPassword: ""
     })
 
     const handleChange = e => {
@@ -23,8 +23,8 @@ const Register = () => {
     }
 
     const register = () => {
-        const { name, email, password, reEnterPassword } = user
-        if( name && email && password && (password === reEnterPassword)){
+        const { name, email, password, ConfirmPassword } = user
+        if( name && email && password && (password === ConfirmPassword)){
             axios.post("http://localhost:9002/register", user)
             .then( res => {
                 alert(res.data.message)
@@ -39,12 +39,12 @@ const Register = () => {
     return (
         <div className="register">
             {console.log("User", user)}
-            <h1>Register</h1>
+            <h1>Signup</h1>
             <input type="text" name="name" value={user.name} placeholder="Your Name" onChange={ handleChange }></input>
             <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={ handleChange }></input>
             <input type="password" name="password" value={user.password} placeholder="Your Password" onChange={ handleChange }></input>
-            <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Password" onChange={ handleChange }></input>
-            <div className="button" onClick={register} >Register</div>
+            <input type="password" name="ConfirmPassword" value={user.ConfirmPassword} placeholder="Confirm Password" onChange={ handleChange }></input>
+            <div className="button" onClick={register} >Signup</div>
             <div>or</div>
             <div className="button" onClick={() => history.push("/login")}>login</div>
         </div>
