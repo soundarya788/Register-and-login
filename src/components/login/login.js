@@ -38,6 +38,6 @@ const Login = ({ setLoginUser}) => {
             <div>or</div>
             <div className="button" onClick={() => history.push("/register")}>Signup</div>
         </div>
-    )
-    }
-export default Login
+    
+   ) }
+export default login
